@@ -13,6 +13,7 @@
 		2B180A0C2576319900EBBF0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B180A0A2576319900EBBF0E /* Main.storyboard */; };
 		2B180A0E2576319A00EBBF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B180A0D2576319A00EBBF0E /* Assets.xcassets */; };
 		2B180A112576319A00EBBF0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B180A0F2576319A00EBBF0E /* LaunchScreen.storyboard */; };
+		2B180A192576349B00EBBF0E /* CalculatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B180A182576349B00EBBF0E /* CalculatorHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2B180A0D2576319A00EBBF0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B180A102576319A00EBBF0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B180A122576319A00EBBF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B180A182576349B00EBBF0E /* CalculatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				2B180A0D2576319A00EBBF0E /* Assets.xcassets */,
 				2B180A0F2576319A00EBBF0E /* LaunchScreen.storyboard */,
 				2B180A122576319A00EBBF0E /* Info.plist */,
+				2B180A182576349B00EBBF0E /* CalculatorHelper.swift */,
 			);
 			path = XMCalculator;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				2B180A092576319900EBBF0E /* ViewController.swift in Sources */,
 				2B180A052576319900EBBF0E /* AppDelegate.swift in Sources */,
 				2B180A072576319900EBBF0E /* SceneDelegate.swift in Sources */,
+				2B180A192576349B00EBBF0E /* CalculatorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
