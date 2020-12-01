@@ -9,12 +9,42 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // ui
+    @IBOutlet weak var screen: UILabel!
+    
+    // data
+    var calculatorHelper: CalculatorHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        calculatorHelper = CalculatorHelper(self)
     }
-
-
+    
+    @IBAction func numClick(_ sender: UIButton) {
+        let clickText = sender.currentTitle!
+        if(getScreenText()=="0"){
+            setScreenText(text: clickText)
+        }else{
+            setScreenText(text: getScreenText()+clickText)
+        }
+    }
+    
+    
+    @IBAction func opClick(_ sender: UIButton) {
+        calculatorHelper?.onOperatorClick(op: sender.currentTitle!)
+    }
+    
+    public func getScreenText()->String{
+        return screen.text!
+    }
+    
+    public func setScreenText(text:String){
+        screen.text = text
+    }
+    
+    public func clearScreen(){
+        screen.text = "0"
+    }
 }
 
