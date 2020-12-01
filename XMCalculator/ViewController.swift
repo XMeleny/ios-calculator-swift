@@ -12,27 +12,43 @@ class ViewController: UIViewController {
     
     // ui
     @IBOutlet weak var screen: UILabel!
+    @IBOutlet weak var opScreen:UILabel!
     
     // data
     var calculatorHelper: CalculatorHelper?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calculatorHelper = CalculatorHelper(self)
     }
     
+    var shouldClearScreen=false
+    var lastClickOp=false
     @IBAction func numClick(_ sender: UIButton) {
         let clickText = sender.currentTitle!
-        if(getScreenText()=="0"){
+        if(getScreenText()=="0"||shouldClearScreen){
             setScreenText(text: clickText)
         }else{
             setScreenText(text: getScreenText()+clickText)
         }
+        shouldClearScreen=false
+        lastClickOp=false
     }
     
-    
+    //fixme 多次点击op会不符合预期
     @IBAction func opClick(_ sender: UIButton) {
-        calculatorHelper?.onOperatorClick(op: sender.currentTitle!)
+        let op = sender.currentTitle!
+        
+        if(op == "AC" || op == "="){
+            calculatorHelper?.onOperatorClick(op: op)
+            lastClickOp=false
+        }else {
+            if(!lastClickOp){
+                calculatorHelper?.onOperatorClick(op: op)
+                lastClickOp=true
+            }
+        }
+        shouldClearScreen=true
     }
     
     public func getScreenText()->String{

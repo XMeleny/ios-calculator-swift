@@ -27,68 +27,41 @@ class CalculatorHelper{
     let opEqual="="
     let opAc="AC"
     
-    enum op:String {
-        case add="+"
+    public func onNumClick(num:Int){
+        
     }
     
     public func onOperatorClick(op:String){
-        switch op {
-            case opAdd: doAdd()
-            case opMinus: doMinus()
-            case opTimes: doTimes()
-            case opDivide: doDivide()
-            case opEqual: doEqual()
-            case opAc: doAc()
-            default: break
+        if(op==opAc){
+            tempResult=0
+            tempOperator=""
+            controller.clearScreen()
+        }else{
+            calculateResultWithLastOp()
+            tempOperator=op
+            controller.setScreenText(text: String(tempResult))
         }
-        
-        setTempResult()
     }
     
-    public func onNumberClick(number:Int){
-        
-    }
-    
-    private func doAdd(){
-        tempOperator = opAdd
-        tempResult+=getScreenResult()
-    }
-    
-    private	func doMinus(){
-        
-    }
-    
-    private	func doTimes(){
-        
-    }
-    
-    private	func doDivide(){
-        
-    }
-    
-    private	func doEqual(){
-        
+    private func calculateResultWithLastOp(){
+        switch tempOperator {
+            case opAdd:
+                tempResult+=getScreenResult()
+            case opMinus:
+                tempResult-=getScreenResult()
+            case opTimes:
+                tempResult*=getScreenResult()
+            case opDivide:
+                tempResult/=getScreenResult()
+            default:
+                tempResult = getScreenResult()
+        }
     }
     
     private func getScreenResult()->Int{
-        return 0
-    }
-    
-    private func setTempResult(){
-        
-    }
-    
-    private	func doAc(){
-        clearData()
-        clearUI()
-    }
-    
-    private func clearUI(){
-        controller.clearScreen()
-    }
-    private func clearData(){
-        tempResult = 0
-        tempOperator=""
+        let ret = Int(controller.getScreenText())!
+        //        print(ret)
+        return ret
     }
 }
 
