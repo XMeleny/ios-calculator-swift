@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         lastClickOp=false
     }
     
-    //fixme 多次点击op会不符合预期
     @IBAction func opClick(_ sender: UIButton) {
         let op = sender.currentTitle!
         
